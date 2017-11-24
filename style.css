@@ -5,7 +5,7 @@ html {
 
 body {
   color: #E8112D;
-  font-size: 2.5vh;
+  font-size: 24px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -15,8 +15,8 @@ body {
   width: 100%;
   transform: translateY(40vh);
   font-weight: bold;
-  font-size: 8vh;
-  letter-spacing: 1vh;
+  font-size: 74px;
+  letter-spacing: 10px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -27,6 +27,160 @@ p.click {
   width: 100%;
   transform: translateY(45vh);
   color: #999;
-  letter-spacing: 0.125vh;
+  letter-spacing: 1px;
   text-align: center;
+}
+
+.can-150 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75vh;
+  height: 67vh;
+  transform-origin: top left;
+  transform: scaleY(1) translate(-50%,-60%);
+  transition: 400ms;
+}
+
+.can-150::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1.5vh;
+  height: 22vh;
+  transform-origin: 50% 0;
+  transform: scaleY(1) translateX(-50%);
+  background-color: currentColor;
+  transition: 400ms 400ms;
+}
+
+.can-150 .leaf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25vh;
+  height: 46vh;
+  transform-origin: 50% calc(100% - 1vh);
+  transform: translate(-50%,-72%);
+  transition: 400ms 400ms;
+}
+
+.can-150 .leaf.small:not(.back) {
+  transform-origin: 50% calc(100% - 0.875vh);
+}
+
+.can-150 .leaf.back {
+  transform-origin: 50% 100%;
+}
+
+.can-150 .leaf.large::before,
+.can-150 .leaf.large::after,
+.can-150 .leaf.small::before,
+.can-150 .leaf.small:not(.back)::after,
+.can-150 .leaf.back::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16.75vh;
+  height: 16.75vh;
+  transform: translate(-50%, 7%) rotate(45deg);
+  border-right: 1.25vh solid;
+  border-bottom: 1.25vh solid;
+}
+
+.can-150 .leaf.large::after,
+.can-150 .leaf.small:not(.back)::after {
+  width: 16vh;
+  height: 16vh;
+  transform: scaleY(2.625) translate(-50%,2.75%) rotate(45deg);
+  border: 1vh solid transparent;
+  border-top: 1vh solid;
+  border-right: 1vh solid transparent;
+  border-bottom: 1vh solid transparent;
+  border-left: 1vh solid;
+}
+
+.can-150 .leaf.small::before {
+  width: 13vh;
+  height: 13vh;
+  transform: translate(-50%, 40%) rotate(45deg);
+}
+
+.can-150 .leaf.small:not(.back)::after {
+  width: 12.25vh;
+  height: 12.25vh;
+  transform: scaleY(2.75) translate(-50%,14.75%) rotate(45deg);
+}
+
+.can-150 .leaf.back::before,
+.can-150 .leaf.small.back::before {
+  width: 6.5vh;
+  height: 6.5vh;
+  transform: scaleY(2.625) translate(-50%,-50%) rotate(45deg);
+  border: 1vh solid transparent;
+  border-top: 1vh solid;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1vh solid;
+}
+
+.can-150 .leaf.small.back::before {
+  width: 4.5vh;
+  height: 4.5vh;
+}
+
+.can-150:not(.closed) .leaf:nth-child(2) {
+  transform: translate(-50%,-72%) rotate(-45deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(3) {
+  transform: translate(-50%,-72%) rotate(45deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(4) {
+  transform: translate(-50%,-72%) rotate(-90deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(5) {
+  transform: translate(-50%,-72%) rotate(90deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(6) {
+  transform: translate(-50%,-72%) rotate(-22deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(7) {
+  transform: translate(-50%,-72%) rotate(22deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(8) {
+  transform: translate(-45%,-65%) rotate(-65deg);
+}
+
+.can-150:not(.closed) .leaf:nth-child(9) {
+  transform: translate(-55%,-65%) rotate(65deg);
+}
+
+.can-150.closed {
+  transform: scale(0) translate(-50%,-58%);
+}
+
+.can-150.closed::before {
+  transform: scaleY(0) translateX(-50%);;
+}
+
+.can-150.closed .leaf.small {
+  opacity: 0;
+}
+
+.can-150.closed .leaf.back {
+  transform: translate(-50%,-79%);
+  opacity: 0;
+}
+
+.can-150.closed .leaf.small.back {
+  transform: translate(-50%,-90.25%);
+  opacity: 0;
 }
